@@ -1,1 +1,30 @@
-get http://localhost:3000
+get http://localhost:5000
+###
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name": "John1",
+    "email": "x@xss.com",
+    "password": "dosdsrs"
+}
+###
+get http://localhost:5000/api/auth
+x-auth-token: eyJhGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWRlMDVmYTA5ZDkyM2UxNjQwYTNmNTliIn0sImlhdCI6MTU3NDk4NzA1MiwiZXhwIjoxNTc1MzQ3MDUyfQ.IVXFfSeQWZY3O2qHp209W_QZhBdeaRrodRPZcXEy48w
+###
+POST http://localhost:5000/api/auth
+Content-Type: application/json
+
+{
+    "email": "x@xss.com",
+    "password": "dosdsrs"
+}
+
+###
+get http://localhost:5000/api/contacts
+###
+POST http://localhost:5000/api/contacts
+###
+PUT http://localhost:5000/api/contacts/1
+###
+DELETE http://localhost:5000/api/contacts/1
